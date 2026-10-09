@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* fonts */
+@font-face {
+  font-family: "PamidorFont1";
+  src: url("/fonts/1a4aa50920b5315c-s.p.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* Font 2 */
+@font-face {
+  font-family: "PamidorFont2";
+  src: url("/fonts/36966cca54120369-s.p.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* Font 3 */
+@font-face {
+  font-family: "PamidorFont3";
+  src: url("/fonts/370fbeb3d5d383fc-s.p.woff2") format("woff2");
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Shared intro title styling */
+.intro-title {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* Choose any font by applying its class */
+.intro-font-1 {
+  font-family: "PamidorFont1", sans-serif;
+}
+
+.intro-font-2 {
+  font-family: "PamidorFont2", sans-serif;
+}
+
+.intro-font-3 {
+  font-family: "PamidorFont3", sans-serif;
+}
+
+/* Intro tagline */
+.intro-tagline {
+  position: absolute;
+  bottom: 9%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  font-family: "PamidorFont1", sans-serif;
+}
+
+.custom-cursor {
+  cursor: url("/images/cursor.png") 16 16, auto;
+}
