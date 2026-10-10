@@ -6,6 +6,8 @@ import { motion } from "motion/react";
 const ACCENT = "#E53935";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
+const DEV_LINKEDIN = "https://www.linkedin.com/in/vivekgaindhar/";  
+
 const EMAIL = "tejasyadav246@gmail.com";
 const LINKTREE = "https://linktr.ee/tejasyadav246";
 
@@ -228,11 +230,19 @@ export default function Contact() {
                 </motion.div>
 
                 {/* credit, very end of the page */}
-                <p
-                    className="mt-4 text-center text-[0.7rem] uppercase tracking-[0.14em] text-black"
-                >
-                    Built and managed by Vivek
-                </p>
+                <div className="mt-4 flex flex-col items-center gap-3 text-[0.7rem] uppercase tracking-[0.14em] text-black">
+                    <p>
+                        Built and managed by{" "}
+                        <a
+                            href={DEV_LINKEDIN}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline underline-offset-4 transition-colors duration-300 hover:text-[#E53935]"
+                        >
+                            Vivek
+                        </a>
+                    </p>
+                </div>
 
             </div>
         </section>
