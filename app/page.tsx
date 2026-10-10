@@ -14,6 +14,7 @@ import Work from "@/components/work";
 import Music from "@/components/Music";
 import SkillsTools from "@/components/SkillsTools";
 import Contact from "@/components/Contact";
+import AudioStories from "@/components/AudioStories";
 
 
 export default function Home() {
@@ -24,7 +25,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="bg-[#f8f7f4] intro-title intro-font-3 h-[2000vh] flex flex-col ">
+    <main className="bg-[#f8f7f4] intro-title intro-font-3 flex flex-col ">
       {/* Intro animation overlay */}
       <AnimatePresence>
         {!introFinished && (
@@ -85,16 +86,18 @@ export default function Home() {
         scrollLength={7}
         fromColor="#c9c7c1"
         toColor="#0A0A0A"
-        className="md:text-[clamp(1.25rem,1.5vw,1.5rem)] 2xl:text-[clamp(1.25rem,1.5vw,1.5rem)]"
+        className=""
       />
 
       <div className="bg-gray-500 h-[0.1rem] w-[90%] mx-auto my-10"></div>
 
       <SelectedProjects />
 
+      <AudioStories />
+
       <StoryJourney />
 
-      <div className="bg-gray-500 h-[0.1rem] w-[90%] mx-auto my-10"></div>
+      <div className="bg-gray-500 h-[0.1rem] w-[90%] mx-auto mb-10"></div>
 
       <Experience />
       

@@ -6,8 +6,8 @@ import { AnimatePresence, motion } from "motion/react";
 
 const links = [
     { label: "Home", href: "/" },
-    { label: "Work", href: "/work" },
-    { label: "Art Lab", href: "/art" },
+    { label: "My Story", href: "#story" },
+    { label: "Work", href: "#work" },
 ];
 
 export default function FullScreenMenu() {

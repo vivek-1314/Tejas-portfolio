@@ -231,7 +231,7 @@ function WorkGroup({ group }: { group: Group }) {
 
 export default function Work() {
     return (
-        <section className="w-full whitespace-normal bg-[#f8f7f4] px-[clamp(1.5rem,5vw,5.5rem)] py-[clamp(4rem,9vw,9rem)] text-[#0A0A0A]">
+        <section id="work" className="w-full whitespace-normal bg-[#f8f7f4] px-[clamp(1.5rem,5vw,5.5rem)] py-[clamp(4rem,9vw,9rem)] text-[#0A0A0A]">
             <div className="mx-auto w-full max-w-[1500px]">
                 <h2 className="mb-[clamp(2.5rem,5vw,5rem)] text-[clamp(2rem,4vw,4rem)] font-medium leading-none tracking-tight">
                     <RiseWords text="Work / Projects" />

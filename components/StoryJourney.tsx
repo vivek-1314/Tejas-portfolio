@@ -127,7 +127,7 @@ export default function StoryJourney() {
     const fill = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.4 });
 
     return (
-        <section className="w-full whitespace-normal bg-[#f8f7f4] px-[clamp(1.5rem,5vw,5.5rem)] py-[clamp(4rem,9vw,9rem)] text-[#0A0A0A]">
+        <section id="story" className="w-full whitespace-normal bg-[#f8f7f4] px-[clamp(1.5rem,5vw,5.5rem)] py-[clamp(4rem,9vw,9rem)] text-[#0A0A0A]">
             <div className="mx-auto w-full max-w-[1500px]">
                 <p className="mb-4 text-xs uppercase tracking-[0.2em] text-[#7a746f]">
                     Story

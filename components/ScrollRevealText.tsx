@@ -96,7 +96,7 @@ export default function ScrollRevealText({
                     {/* flex-wrap + whitespace-normal: wraps even if a parent (like the
                         intro-title class) sets white-space: nowrap, which is inherited */}
                     <p
-                        className={`flex w-full flex-wrap gap-x-[0.25em] whitespace-normal text-left text-[clamp(1.6rem,6.4vw,2.5rem)] md:text-[clamp(1.75rem,min(3.2vw,6svh),4.75rem)] font-medium leading-[1.15] tracking-tight md:max-w-[46%] ${className}`}
+                        className={`flex w-full flex-wrap gap-x-[0.25em] whitespace-normal text-left md:text-[clamp(1.75rem,min(3vw,6svh),10rem)] text-[clamp(1.5rem,min(2.4vw,4svh),8rem)] font-medium leading-[1.15] tracking-tight md:max-w-[46%] ${className}`}
                     >
                         {words.map((word, wordIndex) => (
                             <span

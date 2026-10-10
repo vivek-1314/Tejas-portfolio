@@ -56,12 +56,12 @@ const tools = [
         items: ["FabFilter Pro-Q 3", "FabFilter Plugins", "iZotope Ozone", "iZotope RX", "oeksound soothe2"],
     },
     {
-        category: "Video Editing & Visual Content",
-        items: ["DaVinci Resolve", "Adobe Photoshop"],
-    },
-    {
         category: "AI-Assisted Creative Tools",
         items: ["ElevenLabs", "Suno AI"],
+    },
+    {
+        category: "Video Editing & Visual Content",
+        items: ["DaVinci Resolve", "Adobe Photoshop"],
     },
 ];
 

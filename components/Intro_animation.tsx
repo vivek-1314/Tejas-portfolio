@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "motion/react";
+import { useLenis } from "lenis/react";
 import AnimatedLetters from "@/components/AnimatedLetters";
 
 const images = [
@@ -47,6 +48,10 @@ export default function IntroAnimation({ onComplete }: Props) {
     const [stage, setStage] = useState(0);
     const [aspects, setAspects] = useState<number[]>([]);
     const [viewport, setViewport] = useState({ w: 1280, h: 800 });
+    // true while the intro is playing: the page behind it can't be scrolled
+    const [locked, setLocked] = useState(true);
+    // smooth-scroll instance (undefined if smooth scrolling is off, e.g. reduced motion)
+    const lenis = useLenis();
 
     // keep the latest callback in a ref so the timeline below runs exactly once,
     // even if the parent passes a new function on every render
@@ -120,6 +125,37 @@ export default function IntroAnimation({ onComplete }: Props) {
         [aspects, fontSize]
     );
 
+    // Scroll lock: nothing behind the intro can be scrolled until it is finished.
+    // Covers mouse wheel, touch, keyboard, and the Lenis smooth-scroll instance.
+    useEffect(() => {
+        if (!locked) return;
+
+        const html = document.documentElement;
+        const previousOverflow = html.style.overflow;
+
+        window.scrollTo(0, 0);
+        html.style.overflow = "hidden";
+        lenis?.stop();
+
+        const prevent = (e: Event) => e.preventDefault();
+        const blockedKeys = [" ", "ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End"];
+        const preventKeys = (e: KeyboardEvent) => {
+            if (blockedKeys.includes(e.key)) e.preventDefault();
+        };
+
+        window.addEventListener("wheel", prevent, { passive: false });
+        window.addEventListener("touchmove", prevent, { passive: false });
+        window.addEventListener("keydown", preventKeys);
+
+        return () => {
+            html.style.overflow = previousOverflow;
+            lenis?.start();
+            window.removeEventListener("wheel", prevent);
+            window.removeEventListener("touchmove", prevent);
+            window.removeEventListener("keydown", preventKeys);
+        };
+    }, [locked, lenis]);
+
     // Animation timeline:
     // Stage 0: letters enter.
     // Stage 1: words separate.
@@ -129,7 +165,11 @@ export default function IntroAnimation({ onComplete }: Props) {
         const splitTimer = window.setTimeout(() => setStage(1), 1500);
         const imageTimer = window.setTimeout(() => setStage(2), 2400);
         const fadeTimer = window.setTimeout(() => setStage(3), 6500);
-        const completeTimer = window.setTimeout(() => onCompleteRef.current(), 7200);
+        const completeTimer = window.setTimeout(() => {
+            // unlock right away; the parent's fade-out then plays over a scrollable page
+            setLocked(false);
+            onCompleteRef.current();
+        }, 7200);
 
         return () => {
             window.clearTimeout(splitTimer);
@@ -156,6 +196,7 @@ export default function IntroAnimation({ onComplete }: Props) {
     return (
         <motion.div
             aria-hidden="true"
+            style={{ touchAction: "none", overscrollBehavior: "contain" }}
             className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden bg-[#f8f7f4] text-neutral-900"
             initial={{ opacity: 1 }}
             animate={{ opacity: stage === 3 ? 0 : 1 }}
