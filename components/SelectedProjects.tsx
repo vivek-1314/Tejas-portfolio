@@ -56,7 +56,7 @@ const projects: Project[] = [
         title: "AI Story Animation",
         category: "Narrative Sound Design",
         href: "https://www.youtube.com/watch?v=ZXs_R0NcUOU",
-        image: "/images/selected-project/selected-2.gif",
+        image: "/images/selected-project/selected-2.jpg",
         year: "2026",
         team: "Durlabh Darshan Assignment",
         notes: [
@@ -125,7 +125,7 @@ const projects: Project[] = [
     {
         title: "Laal Rang",
         category: "Music Composition",
-        href: "#",
+        href: "https://www.youtube.com/watch?v=r3q0GrDuhnc",
         image: "/images/selected-project/selected-4.jpg",
         team: "Short Film",
         notes: [
@@ -144,8 +144,7 @@ const projects: Project[] = [
     {
         title: "CHEEKH",
         category: "Film Music · Production & Mixing",
-        // TODO: replace with the real link and cover image
-        href: "#",
+        href: "https://youtu.be/8wjQPXZBXq4?si=Rb_WufvRkY-UpB4T",
         image: "/images/selected-project/selected-5.jpg",
         team: "Short Film",
         notes: [
@@ -196,11 +195,10 @@ function ProjectNotesBase({ project, isActive }: { project: Project; isActive: b
     return (
         <aside
             aria-label={`${project.title} notes`}
-            className={`relative z-10 mb-6 border border-[#0A0A0A]/15 bg-[#f8f7f4] lg:absolute lg:bottom-6 lg:left-0 lg:mb-0 lg:w-[calc(100%_-_var(--img-w)_-_40px)] lg:transition-[opacity,transform,visibility] lg:duration-300 lg:ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                isActive
+            className={`relative z-10 mb-6 border border-[#0A0A0A]/15 bg-[#f8f7f4] lg:absolute lg:bottom-6 lg:left-0 lg:mb-0 lg:w-[calc(100%_-_var(--img-w)_-_40px)] lg:transition-[opacity,transform,visibility] lg:duration-300 lg:ease-[cubic-bezier(0.22,1,0.36,1)] ${isActive
                     ? "lg:visible lg:translate-y-0 lg:opacity-100"
                     : "lg:invisible lg:translate-y-2 lg:opacity-0"
-            }`}
+                }`}
         >
             {/* header */}
             <div className="flex items-center justify-between gap-4 border-b border-[#0A0A0A]/10 px-4 py-2.5 text-[10px] uppercase tracking-[0.18em] text-[#7a746f]">
@@ -231,9 +229,8 @@ function ProjectNotesBase({ project, isActive }: { project: Project; isActive: b
                             onMouseEnter={() => setTab(i)}
                             onFocus={() => setTab(i)}
                             onClick={() => setTab(i)}
-                            className={`relative flex items-center gap-2 pb-2 text-[11px] uppercase tracking-[0.14em] transition-colors duration-200 ${
-                                on ? "text-[#0A0A0A]" : "text-[#7a746f]"
-                            }`}
+                            className={`relative flex items-center gap-2 pb-2 text-[11px] uppercase tracking-[0.14em] transition-colors duration-200 ${on ? "text-[#0A0A0A]" : "text-[#7a746f]"
+                                }`}
                         >
                             <span className={`tabular-nums ${on ? "text-[#E53935]" : ""}`}>
                                 {pad(i + 1)}
@@ -246,9 +243,8 @@ function ProjectNotesBase({ project, isActive }: { project: Project; isActive: b
                                     {[0, 0.25, 0.5].map((d) => (
                                         <span
                                             key={d}
-                                            className={`meter-bar block h-full w-[2px] ${
-                                                isActive ? "" : "[animation-play-state:paused]"
-                                            }`}
+                                            className={`meter-bar block h-full w-[2px] ${isActive ? "" : "[animation-play-state:paused]"
+                                                }`}
                                             style={{ backgroundColor: ACCENT, animationDelay: `${d}s` }}
                                         />
                                     ))}
@@ -258,9 +254,8 @@ function ProjectNotesBase({ project, isActive }: { project: Project; isActive: b
                             {/* red playhead underline */}
                             <span
                                 aria-hidden="true"
-                                className={`absolute inset-x-0 -bottom-px h-[1.5px] origin-left transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                                    on ? "scale-x-100" : "scale-x-0"
-                                }`}
+                                className={`absolute inset-x-0 -bottom-px h-[1.5px] origin-left transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${on ? "scale-x-100" : "scale-x-0"
+                                    }`}
                                 style={{ backgroundColor: ACCENT }}
                             />
                         </button>
@@ -313,11 +308,10 @@ const ProjectRow = memo(function ProjectRow({
             onMouseEnter={() => onIntent(index)}
             onMouseLeave={onLeave}
             onFocus={() => onNow(index)}
-            className={`lg:relative lg:flex lg:flex-none lg:flex-col lg:overflow-hidden lg:transition-[height] lg:duration-[400ms] lg:ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                isActive
+            className={`lg:relative lg:flex lg:flex-none lg:flex-col lg:overflow-hidden lg:transition-[height] lg:duration-[400ms] lg:ease-[cubic-bezier(0.22,1,0.36,1)] ${isActive
                     ? "lg:h-[clamp(400px,29vw,470px)]"
                     : "lg:h-[clamp(96px,7.8vw,150px)]"
-            }`}
+                }`}
         >
             <Link
                 href={project.href}
@@ -332,19 +326,17 @@ const ProjectRow = memo(function ProjectRow({
                     <div className="min-w-0">
                         <div className="flex flex-col items-start gap-y-4 lg:flex-row lg:flex-wrap lg:items-center lg:justify-between lg:gap-x-6">
                             <h3
-                                className={`break-words text-[clamp(1.75rem,3.2vw,3.25rem)] font-medium leading-tight tracking-tight transition-[color,opacity] duration-300 ${
-                                    isActive ? "lg:text-[#E53935] lg:opacity-100" : "lg:opacity-45"
-                                }`}
+                                className={`break-words text-[clamp(1.75rem,3.2vw,3.25rem)] font-medium leading-tight tracking-tight transition-[color,opacity] duration-300 ${isActive ? "lg:text-[#E53935] lg:opacity-100" : "lg:opacity-45"
+                                    }`}
                             >
                                 {project.title}
                             </h3>
 
                             <span
-                                className={`group/btn inline-flex shrink-0 items-center gap-3 border px-[15px] py-[9px] text-[15px] font-medium leading-normal transition-[background-color,color,border-color,opacity] duration-300 hover:border-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white ${
-                                    isActive
+                                className={`group/btn inline-flex shrink-0 items-center gap-3 border px-[15px] py-[9px] text-[15px] font-medium leading-normal transition-[background-color,color,border-color,opacity] duration-300 hover:border-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white ${isActive
                                         ? "border-[#0A0A0A]"
                                         : "border-[#0A0A0A] lg:border-[#0A0A0A]/25 lg:opacity-45"
-                                }`}
+                                    }`}
                             >
                                 {getButtonLabel(project.href)}
                                 <svg
@@ -363,9 +355,8 @@ const ProjectRow = memo(function ProjectRow({
 
                     {/* Cover image: always visible below lg, fades in on the active row at lg+ */}
                     <div
-                        className={`opacity-100 transition-opacity duration-300 md:col-start-2 ${
-                            isActive ? "" : "lg:opacity-0"
-                        }`}
+                        className={`opacity-100 transition-opacity duration-300 md:col-start-2 ${isActive ? "" : "lg:opacity-0"
+                            }`}
                     >
                         <div className="group/cover relative mt-5 aspect-[16/10] w-full overflow-hidden bg-neutral-200 md:mt-0 md:aspect-[3/2]">
                             <img

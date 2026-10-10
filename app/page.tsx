@@ -15,6 +15,7 @@ import Music from "@/components/Music";
 import SkillsTools from "@/components/SkillsTools";
 import Contact from "@/components/Contact";
 import AudioStories from "@/components/AudioStories";
+import WelcomeNote from "@/components/Welcomenote";
 
 
 export default function Home() {
@@ -67,6 +68,8 @@ export default function Home() {
                 <br />
                 I create what you hear.
               </p>
+
+              <WelcomeNote src="/audio/welcome-note.wav" />
 
               <Skills />
             </div>

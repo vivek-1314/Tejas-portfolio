@@ -20,8 +20,8 @@ export default function SkillChips({
             initial={{ opacity: 0, y: 24 }}
             animate={show ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-14"
-        > <ul className="mt-6 flex max-w-[600px] flex-wrap gap-3 lg:mt-[35px]">
+            className=""
+        > <ul className="flex max-w-[600px] flex-wrap gap-3 mt-3">
                 {skills.map((skill) => (<li
                     key={skill}
                     className="border border-[#b3b1ab] px-4 py-3 font-archivo text-[12px] font-normal tracking-[0.02em] text-[#161c2b]"
