@@ -367,17 +367,15 @@ function BeforeAfterPlayer({ story, seed }: { story: Story; seed: number }) {
                                 type="button"
                                 aria-pressed={on}
                                 onClick={() => setSide(value)}
-                                className={`relative z-10 px-4 py-3 text-left transition-colors duration-300 sm:px-5 ${
-                                    on ? "text-white" : "text-[#0A0A0A]"
-                                }`}
+                                className={`relative z-10 px-4 py-3 text-left transition-colors duration-300 sm:px-5 ${on ? "text-white" : "text-[#0A0A0A]"
+                                    }`}
                             >
                                 <span className="block text-[clamp(1rem,1.4vw,1.35rem)] font-medium leading-none tracking-tight">
                                     {label}
                                 </span>
                                 <span
-                                    className={`mt-1 block text-[10px] uppercase tracking-[0.14em] transition-opacity duration-300 ${
-                                        on ? "opacity-80" : "opacity-50"
-                                    }`}
+                                    className={`mt-1 block text-[10px] uppercase tracking-[0.14em] transition-opacity duration-300 ${on ? "opacity-80" : "opacity-50"
+                                        }`}
                                 >
                                     {sub}
                                 </span>
@@ -461,9 +459,8 @@ function BeforeAfterPlayer({ story, seed }: { story: Story; seed: number }) {
                             {[0, 0.25, 0.5].map((d) => (
                                 <span
                                     key={d}
-                                    className={`ab-meter block h-full w-[2px] ${
-                                        playing ? "" : "[animation-play-state:paused]"
-                                    }`}
+                                    className={`ab-meter block h-full w-[2px] ${playing ? "" : "[animation-play-state:paused]"
+                                        }`}
                                     style={{
                                         backgroundColor: isAfter ? ACCENT : "#0A0A0A",
                                         animationDelay: `${d}s`,
@@ -546,9 +543,8 @@ export default function AudioStories() {
                     {...rise(0.15)}
                     className="mt-6 max-w-[62ch] text-[clamp(1rem,1.3vw,1.375rem)] leading-relaxed text-[#483A35]"
                 >
-                    A before-and-after showcase of audio storytelling projects created for Kuku FM,
-                    highlighting my sound-design process and the transformation from original audio to
-                    the final sound-designed version.
+                    A before-and-after showcase of audio storytelling project, highlighting my sound-design process and the transformation
+                    from original audio to the final sound-designed version.
                 </motion.p>
 
                 <motion.div
@@ -563,42 +559,40 @@ export default function AudioStories() {
                 <div className="mt-[clamp(2rem,4vw,3.5rem)] grid gap-x-12 gap-y-8 lg:grid-cols-[minmax(0,0.6fr)_minmax(0,1.6fr)]">
                     {/* project list: name on the left, player box on the right */}
                     <ul className="self-start">
-                            {stories.map((s, i) => {
-                                const on = i === current;
+                        {stories.map((s, i) => {
+                            const on = i === current;
 
-                                return (
-                                    <li key={s.title}>
-                                        <button
-                                            type="button"
-                                            onClick={() => setCurrent(i)}
-                                            aria-current={on}
-                                            className="relative flex w-full items-baseline gap-4 border-b border-[#0A0A0A]/10 py-4 text-left"
+                            return (
+                                <li key={s.title}>
+                                    <button
+                                        type="button"
+                                        onClick={() => setCurrent(i)}
+                                        aria-current={on}
+                                        className="relative flex w-full items-baseline gap-4 border-b border-[#0A0A0A]/10 py-4 text-left"
+                                    >
+                                        <span
+                                            className="w-8 shrink-0 text-xs tabular-nums transition-colors duration-300"
+                                            style={{ color: on ? ACCENT : "#7a746f" }}
                                         >
-                                            <span
-                                                className="w-8 shrink-0 text-xs tabular-nums transition-colors duration-300"
-                                                style={{ color: on ? ACCENT : "#7a746f" }}
-                                            >
-                                                {String(i + 1).padStart(2, "0")}
-                                            </span>
-                                            <span
-                                                className={`text-[clamp(1.1rem,1.8vw,1.6rem)] font-medium leading-tight tracking-tight transition-[opacity,transform] duration-300 ${
-                                                    on ? "translate-x-2 opacity-100" : "opacity-40"
+                                            {String(i + 1).padStart(2, "0")}
+                                        </span>
+                                        <span
+                                            className={`text-[clamp(1.1rem,1.8vw,1.6rem)] font-medium leading-tight tracking-tight transition-[opacity,transform] duration-300 ${on ? "translate-x-2 opacity-100" : "opacity-40"
                                                 }`}
-                                            >
-                                                {s.title}
-                                            </span>
-                                            <span
-                                                aria-hidden="true"
-                                                className={`absolute inset-x-0 -bottom-px h-[1.5px] origin-left transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                                                    on ? "scale-x-100" : "scale-x-0"
+                                        >
+                                            {s.title}
+                                        </span>
+                                        <span
+                                            aria-hidden="true"
+                                            className={`absolute inset-x-0 -bottom-px h-[1.5px] origin-left transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${on ? "scale-x-100" : "scale-x-0"
                                                 }`}
-                                                style={{ backgroundColor: ACCENT }}
-                                            />
-                                        </button>
-                                    </li>
-                                );
-                            })}
-                        </ul>
+                                            style={{ backgroundColor: ACCENT }}
+                                        />
+                                    </button>
+                                </li>
+                            );
+                        })}
+                    </ul>
 
                     {/* the player: remounts per project, which also stops the previous audio */}
                     <div>
